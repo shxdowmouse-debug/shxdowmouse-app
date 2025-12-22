@@ -40,13 +40,26 @@ export function ProductHero({ product, onBuyClick }: ProductHeroProps) {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-            <Button 
-              size="lg" 
-              onClick={onBuyClick}
-              className="h-14 px-8 rounded-2xl text-lg font-semibold bg-white text-black hover:bg-white/90 hover:-translate-y-1 transition-all shadow-[0_0_20px_-5px_rgba(255,255,255,0.3)]"
-            >
-              Notify Me
-            </Button>
+            <form 
+  action="https://formspree.io/f/xdanpdwv" 
+  method="POST"
+  className="flex flex-col sm:flex-row items-center gap-4 justify-center w-full sm:w-auto"
+>
+  <input
+    type="email"
+    name="email"
+    required
+    placeholder="Email Address"
+    className="w-full sm:w-64 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none"
+  />
+
+  <button 
+    type="submit"
+    className="h-14 px-8 rounded-2xl text-lg font-semibold bg-white text-black hover:bg-white/90 transition-all shadow-[0_0_20px_-5px_rgba(255,255,255,0.3)] w-full sm:w-auto"
+  >
+    Notify Me
+  </button>
+</form>
             <Button 
               variant="outline" 
               size="lg"
