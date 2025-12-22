@@ -62,7 +62,6 @@ export function ProductHero({ product, onBuyClick }: ProductHeroProps) {
   </button>
 <NotifyForm />
               Explore Features
-            </Button>
           </div>
         </motion.div>
 
