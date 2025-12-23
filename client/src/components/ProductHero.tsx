@@ -60,7 +60,7 @@ export function ProductHero({ product, onBuyClick }: ProductHeroProps) {
           initial={{ opacity: 0, scale: 0.85, rotate: -6 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 1, delay: 0.2, type: "spring" }}
-          className="relative group w-full max-w-md lg:ml-auto"
+          className="relative group w-full max-w-lg lg:ml-auto"
         >
           {/* Decorative glow */}
           <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-3xl scale-75 group-hover:scale-90 transition-transform duration-700 opacity-50" />
