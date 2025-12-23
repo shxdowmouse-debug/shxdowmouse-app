@@ -38,7 +38,27 @@ export function ProductHero({ product, onBuyClick }: ProductHeroProps) {
               Buy now
             </Button>
 
-            <NotifyForm />
+            <Dialog>
+  <DialogTrigger asChild>
+    <Button
+      size="lg"
+      className="h-14 px-8 rounded-2xl text-lg font-semibold bg-white text-black hover:bg-white/90 transition-all shadow-lg"
+    >
+      Notify Me
+    </Button>
+  </DialogTrigger>
+
+  <DialogContent className="bg-neutral-900 border border-white/10 text-white">
+    <DialogHeader>
+      <DialogTitle>Get notified</DialogTitle>
+      <DialogDescription>
+        Enter your email address and we’ll let you know as soon as it’s available.
+      </DialogDescription>
+    </DialogHeader>
+
+    <NotifyForm />
+  </DialogContent>
+</Dialog>
 
             <Button
               variant="outline"
