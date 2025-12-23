@@ -29,7 +29,7 @@ export function ProductHero({ product }: ProductHeroProps) {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="max-w-xl w-full"
+          className="max-w-xl w-full pl-6 lg:pl-12"
         >
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
             {product?.name}
