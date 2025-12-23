@@ -87,7 +87,7 @@ export function ProductHero({ product }: ProductHeroProps) {
         >
           <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-3xl scale-75 group-hover:scale-90 transition-transform duration-700 opacity-50" />
 
-          <div className="relative z-10 aspect-square flex items-center justify-center">
+          <div className="relative z-10 aspect-auto flex items-center justify-center">
             <img
               src={product?.imageUrl ?? "/mouse-placeholder.png"}
               alt={product?.name ?? "Product image"}
