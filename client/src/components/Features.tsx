@@ -79,7 +79,7 @@ export function Features() {
               className="
                 group p-8 rounded-3xl
                 bg-white/10 backdrop-blur-2xl
-                border border-white/20
+                border border-white/20 hover:border-white/60 hover:ring-2 hover:ring-white/40
                 shadow-[0_8px_32px_rgba(0,0,0,0.4)]
                 transition-all duration-300
                 hover:scale-[1.02]
