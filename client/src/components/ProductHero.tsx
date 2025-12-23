@@ -67,8 +67,6 @@ export function ProductHero({ product, onBuyClick }: ProductHeroProps) {
   className="h-14 px-8 rounded-2xl text-lg font-medium border-white/10 hover:bg-white/5 hover:text-white transition-all"
   onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
 >
-  Explore Features
-</Button>
         </motion.div>
 
         <motion.div 
