@@ -12,7 +12,8 @@ export function OrderModal({ isOpen, onClose, product }: OrderModalProps) {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent
         className="
-          max-w-md
+          max-w-lg
+          mx-auto
           rounded-3xl
           p-8
           text-white
