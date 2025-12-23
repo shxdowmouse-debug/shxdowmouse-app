@@ -60,11 +60,18 @@ export function ProductHero({ product, onBuyClick }: ProductHeroProps) {
 >
   Notify Me
 </button>
-<NotifyForm />
-           <Button 
-  variant="outline" 
-  size="lg"
-  className="h-14 px-8 rounded-2xl text-lg font-medium border-white/10 hover:bg-white/5 hover:text-white transition-all"
+<div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+  <NotifyForm />
+
+  <Button 
+    variant="outline" 
+    size="lg"
+    className="h-14 px-8 rounded-2xl text-lg font-medium border-white/10 hover:bg-white/5 hover:text-white transition-all"
+    onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+  >
+    Explore Features
+  </Button>
+</div>
   onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
 >
   Explore Features
