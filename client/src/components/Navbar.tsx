@@ -52,7 +52,7 @@ export function Navbar() {
             Products
           </a>
 
-          {/* Pre-order Now → Notify Popup */}
+          {/* Pre-order Now → Glassmorphism Popup */}
           <Dialog>
             <DialogTrigger asChild>
               <Button 
@@ -62,15 +62,25 @@ export function Navbar() {
               </Button>
             </DialogTrigger>
 
-            <DialogContent className="bg-neutral-900 border border-white/10 text-white">
+            <DialogContent
+              className="
+                max-w-lg mx-auto rounded-3xl p-8 text-white
+                bg-white/10 backdrop-blur-2xl border border-white/20
+                shadow-[0_8px_32px_rgba(0,0,0,0.4)]
+              "
+            >
               <DialogHeader>
-                <DialogTitle>Get notified</DialogTitle>
-                <DialogDescription>
-                  Enter your email address and we’ll let you know as soon as it’s available.
+                <DialogTitle className="text-3xl font-bold tracking-tight">
+                  Pre‑Order Now
+                </DialogTitle>
+                <DialogDescription className="text-white/70 text-base">
+                  Enter your email and we’ll notify you as soon as pre‑orders open.
                 </DialogDescription>
               </DialogHeader>
 
-              <NotifyForm />
+              <div className="mt-6">
+                <NotifyForm />
+              </div>
             </DialogContent>
           </Dialog>
 
