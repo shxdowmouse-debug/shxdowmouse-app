@@ -53,13 +53,18 @@ export function Features() {
   return (
     <section id="features" className="py-24 px-4 bg-background relative overflow-hidden">
       <div className="container max-w-7xl mx-auto relative z-10">
+        
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">Tech Specs</h2>
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
+            Tech Specs
+          </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Everything you need to dominate the competition, packed into a featherlight chassis.
           </p>
         </div>
 
+        {/* Liquid Glass Grid */}
         <motion.div 
           variants={container}
           initial="hidden"
@@ -71,13 +76,30 @@ export function Features() {
             <motion.div 
               key={idx}
               variants={item}
-              className="group p-8 rounded-3xl bg-white/[0.03] border border-white/[0.05] hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300 hover:-translate-y-1"
+              className="
+                group p-8 rounded-3xl
+                bg-white/10 backdrop-blur-2xl
+                border border-white/20
+                shadow-[0_8px_32px_rgba(0,0,0,0.4)]
+                transition-all duration-300
+                hover:scale-[1.02]
+              "
             >
-              <div className="w-14 h-14 rounded-2xl bg-white text-black flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="
+                w-14 h-14 rounded-2xl bg-white text-black 
+                flex items-center justify-center mb-6
+                group-hover:scale-110 transition-transform duration-300
+              ">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-bold font-display mb-3 group-hover:text-white transition-colors">{feature.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+
+              <h3 className="text-xl font-bold font-display mb-3 group-hover:text-white transition-colors">
+                {feature.title}
+              </h3>
+
+              <p className="text-white/70 leading-relaxed">
+                {feature.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>
