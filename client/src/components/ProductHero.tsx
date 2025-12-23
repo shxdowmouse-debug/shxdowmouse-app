@@ -1,3 +1,12 @@
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription
+} from "./ui/dialog";
+
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { NotifyForm } from "./notifyform";
@@ -22,7 +31,8 @@ export function ProductHero({ product, onBuyClick }: ProductHeroProps) {
         >
           {/* CHANGE THIS TITLE TO WHAT YOU WANT */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
-            {product.name}
+            {product?.name}
+            {product?.description}
           </h1>
 
           <p className="text-lg text-white/70 mb-6">
