@@ -34,59 +34,40 @@ export default function NotifyForm() {
       onSubmit={handleSubmit}
       className="flex flex-col sm:flex-row items-center gap-4 justify-center w-full sm:w-auto"
     >
-      <input
-        type="email"
-        name="email"
-        required
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email Address"
-        className="w-full sm:w-64 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none backdrop-blur-md"
-      />
-
-      <button
-  type="submit"
-  disabled={status === "loading"}
-  className="
-    h-14 px-8 rounded-2xl text-lg font-semibold 
-    bg-white text-black hover:bg-white/90 transition-all shadow-md 
-    w-full sm:w-auto whitespace-nowrap
-  "
->
-  {status === "loading" ? "Sending..." : "Notify Me"}
-</button>
-
       {status === "success" ? (
-  <p className="text-green-400 text-sm text-center w-full">
-    Thanks! You’ll be notified.
-  </p>
-) : (
-  <>
-    <input
-      type="email"
-      name="email"
-      required
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-      placeholder="Email Address"
-      className="w-full sm:w-64 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none backdrop-blur-md"
-    />
+        <p className="text-green-400 text-sm text-center w-full">
+          Thanks! You’ll be notified.
+        </p>
+      ) : (
+        <>
+          <input
+            type="email"
+            name="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email Address"
+            className="w-full sm:w-64 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none backdrop-blur-md"
+          />
 
-    <button
-      type="submit"
-      disabled={status === "loading"}
-      className="
-        h-14 px-8 rounded-2xl text-lg font-semibold 
-        bg-white text-black hover:bg-white/90 transition-all shadow-md 
-        w-full sm:w-auto whitespace-nowrap
-      "
-    >
-      {status === "loading" ? "Sending..." : "Notify Me"}
-    </button>
-  </>
-)}
+          <button
+            type="submit"
+            disabled={status === "loading"}
+            className="
+              h-14 px-8 rounded-2xl text-lg font-semibold 
+              bg-white text-black hover:bg-white/90 transition-all shadow-md 
+              w-full sm:w-auto whitespace-nowrap
+            "
+          >
+            {status === "loading" ? "Sending..." : "Notify Me"}
+          </button>
+        </>
+      )}
+
       {status === "error" && (
-        <p className="text-red-400 text-sm">Something went wrong.</p>
+        <p className="text-red-400 text-sm w-full text-center">
+          Something went wrong. Please try again.
+        </p>
       )}
     </form>
   );
