@@ -5,7 +5,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import NotifyForm from "./NotifyForm";
+import NotifyForm from "./notifyform";
 
 export default function OrderModal({ isOpen, onClose }) {
   return (
@@ -34,7 +34,7 @@ export default function OrderModal({ isOpen, onClose }) {
         </DialogHeader>
 
         <div className="mt-6">
-          <NotifyForm />
+          <notifyform />
         </div>
       </DialogContent>
     </Dialog>
