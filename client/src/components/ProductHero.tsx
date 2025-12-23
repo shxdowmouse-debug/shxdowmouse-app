@@ -34,7 +34,6 @@ export function ProductHero({ product, onBuyClick }: ProductHeroProps) {
           {/* CHANGE THIS TITLE TO WHAT YOU WANT */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
             {product?.name}
-            {product?.description}
           </h1>
 
           <p className="text-lg text-white/70 mb-6">
