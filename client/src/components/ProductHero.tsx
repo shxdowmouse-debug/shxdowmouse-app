@@ -54,20 +54,21 @@ export function ProductHero({ product, onBuyClick }: ProductHeroProps) {
     className="w-full sm:w-64 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none"
   />
 
-  <button 
-    type="submit"
-    className="h-14 px-8 rounded-2xl text-lg font-semibold bg-white text-black hover:bg-white/90 transition-all shadow-[0_0_20px_-5px_rgba(255,255,255,0.3)] w-full sm:w-auto"
-  >
-    Notify Me
-  </button>
+  <button
+  type="submit"
+  className="h-14 px-8 rounded-2xl text-lg font-semibold bg-white text-black hover:bg-white/90 transition-all shadow-md w-full sm:w-auto"
+>
+  Notify Me
+</button>
 <NotifyForm />
-              <Button 
+           <Button 
   variant="outline" 
   size="lg"
   className="h-14 px-8 rounded-2xl text-lg font-medium border-white/10 hover:bg-white/5 hover:text-white transition-all"
   onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
 >
-        </motion.div>
+  Explore Features
+</Button>
 
         <motion.div 
           initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
