@@ -5,10 +5,10 @@ interface OrderModalProps {
   isOpen: boolean;
   onClose: () => void;
   product: { name: string };
-  mode: "notify" | "preorder" | "comingsoon";
+  mode?: "notify" | "preorder" | "comingsoon"; // optional, defaults below
 }
 
-export function OrderModal({ isOpen, onClose, product, mode }: OrderModalProps) {
+export function OrderModal({ isOpen, onClose, product, mode = "notify" }: OrderModalProps) {
   const titles = {
     notify: "Get Notified",
     preorder: "Pre‑Order Now",
