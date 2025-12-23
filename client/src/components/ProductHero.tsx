@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
-import { NotifyForm } from "./notifyform";
+import { NotifyForm } from "./NotifyForm";
 
 import {
   Dialog,
