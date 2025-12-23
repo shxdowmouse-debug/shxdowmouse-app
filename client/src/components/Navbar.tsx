@@ -32,12 +32,27 @@ export function Navbar({ onBuyClick }: NavbarProps) {
           <a href="#products" className="text-sm font-medium text-muted-foreground hover:text-white transition-colors hidden md:block">
             Products
           </a>
-          <Button 
-            onClick={onBuyClick}
-            className="rounded-2xl font-semibold px-6 bg-white text-black hover:bg-white/90 hover:scale-105 transition-all duration-200"
-          >
-            Pre-order Now
-          </Button>
+          <Dialog>
+  <DialogTrigger asChild>
+    <Button 
+      className="rounded-2xl font-semibold px-6 bg-white text-black hover:bg-white/90 hover:scale-105 transition-all duration-200"
+    >
+      Pre-order Now
+    </Button>
+  </DialogTrigger>
+
+  <DialogContent className="bg-neutral-900 border border-white/10 text-white">
+    <DialogHeader>
+      <DialogTitle>Get notified</DialogTitle>
+      <DialogDescription>
+        Enter your email address and we’ll let you know as soon as it’s available.
+      </DialogDescription>
+    </DialogHeader>
+
+    <NotifyForm />
+  </DialogContent>
+</Dialog>
+          
         </div>
       </div>
     </motion.nav>
