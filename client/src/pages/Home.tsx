@@ -98,11 +98,11 @@ export default function Home() {
                   </div>
 
                   {/* Image - Right */}
-                  <div className="bg-white/5 h-80 md:h-auto md:w-1/2 flex items-center justify-center order-1 md:order-2">
+                  <div className="bg-white/5 h-auto md:w-1/2 flex items-center justify-center order-1 md:order-2">
                     <img
                       src={productImage}
                       alt="shxdowmouse one"
-                      className="h-full w-full object-cover p-1 md:p-8"
+                      className="h-full w-full object-contain p-1 md:p-8"
                     />
                   </div>
                 </div>
