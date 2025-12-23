@@ -21,7 +21,7 @@ interface ProductHeroProps {
 
 export function ProductHero({ product }: ProductHeroProps) {
   return (
-    <section className="relative w-full py-48 overflow-hidden bg-gradient-to-b from-black to-neutral-900 text-white">
+    <section className="relative w-full py-52 overflow-hidden bg-gradient-to-b from-black to-neutral-900 text-white">
       <div className="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-between gap-16">
 
         {/* LEFT SIDE: TEXT */}
