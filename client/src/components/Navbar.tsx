@@ -14,7 +14,7 @@ import {
   DialogDescription
 } from "@/components/ui/dialog";
 
-import { NotifyForm } from "@/components/notifyform";
+import NotifyForm from "@/components/notifyform";
 
 export function Navbar() {
   return (
