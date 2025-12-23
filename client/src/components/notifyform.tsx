@@ -45,12 +45,16 @@ export default function NotifyForm() {
       />
 
       <button
-        type="submit"
-        disabled={status === "loading"}
-        className="h-14 px-8 rounded-2xl text-lg font-semibold bg-white text-black hover:bg-white/90 transition-all shadow-md w-full sm:w-auto"
-      >
-        {status === "loading" ? "Sending..." : "Notify Me"}
-      </button>
+  type="submit"
+  disabled={status === "loading"}
+  className="
+    h-14 px-8 rounded-2xl text-lg font-semibold 
+    bg-white text-black hover:bg-white/90 transition-all shadow-md 
+    w-full sm:w-auto whitespace-nowrap
+  "
+>
+  {status === "loading" ? "Sending..." : "Notify Me"}
+</button>
 
       {status === "success" && (
         <p className="text-green-400 text-sm">Thanks! You’ll be notified.</p>
