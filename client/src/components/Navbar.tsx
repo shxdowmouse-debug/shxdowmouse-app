@@ -1,13 +1,22 @@
+"use client";
+
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { MousePointer2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-interface NavbarProps {
-  onBuyClick: () => void;
-}
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription
+} from "@/components/ui/dialog";
 
-export function Navbar({ onBuyClick }: NavbarProps) {
+import { NotifyForm } from "@/components/notifyform";
+
+export function Navbar() {
   return (
     <motion.nav 
       initial={{ y: -100, opacity: 0 }}
@@ -16,6 +25,8 @@ export function Navbar({ onBuyClick }: NavbarProps) {
       className="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-center"
     >
       <div className="w-full max-w-7xl glass-panel rounded-3xl px-6 py-4 flex items-center justify-between">
+        
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group cursor-pointer">
           <div className="bg-white text-black p-2 rounded-xl group-hover:scale-110 transition-transform duration-300">
             <MousePointer2 size={20} fill="currentColor" />
@@ -25,34 +36,44 @@ export function Navbar({ onBuyClick }: NavbarProps) {
           </span>
         </Link>
 
+        {/* Navigation + CTA */}
         <div className="flex items-center gap-6">
-          <a href="#features" className="text-sm font-medium text-muted-foreground hover:text-white transition-colors hidden md:block">
+          <a 
+            href="#features" 
+            className="text-sm font-medium text-muted-foreground hover:text-white transition-colors hidden md:block"
+          >
             Features
           </a>
-          <a href="#products" className="text-sm font-medium text-muted-foreground hover:text-white transition-colors hidden md:block">
+
+          <a 
+            href="#products" 
+            className="text-sm font-medium text-muted-foreground hover:text-white transition-colors hidden md:block"
+          >
             Products
           </a>
+
+          {/* Pre-order Now → Notify Popup */}
           <Dialog>
-  <DialogTrigger asChild>
-    <Button 
-      className="rounded-2xl font-semibold px-6 bg-white text-black hover:bg-white/90 hover:scale-105 transition-all duration-200"
-    >
-      Pre-order Now
-    </Button>
-  </DialogTrigger>
+            <DialogTrigger asChild>
+              <Button 
+                className="rounded-2xl font-semibold px-6 bg-white text-black hover:bg-white/90 hover:scale-105 transition-all duration-200"
+              >
+                Pre-order Now
+              </Button>
+            </DialogTrigger>
 
-  <DialogContent className="bg-neutral-900 border border-white/10 text-white">
-    <DialogHeader>
-      <DialogTitle>Get notified</DialogTitle>
-      <DialogDescription>
-        Enter your email address and we’ll let you know as soon as it’s available.
-      </DialogDescription>
-    </DialogHeader>
+            <DialogContent className="bg-neutral-900 border border-white/10 text-white">
+              <DialogHeader>
+                <DialogTitle>Get notified</DialogTitle>
+                <DialogDescription>
+                  Enter your email address and we’ll let you know as soon as it’s available.
+                </DialogDescription>
+              </DialogHeader>
 
-    <NotifyForm />
-  </DialogContent>
-</Dialog>
-          
+              <NotifyForm />
+            </DialogContent>
+          </Dialog>
+
         </div>
       </div>
     </motion.nav>
