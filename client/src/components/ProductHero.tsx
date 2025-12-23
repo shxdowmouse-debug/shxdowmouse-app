@@ -12,7 +12,7 @@ interface ProductHeroProps {
 export function ProductHero({ product, onBuyClick }: ProductHeroProps) {
   return (
     <section className="relative w-full py-24 overflow-hidden bg-gradient-to-b from-black to-neutral-900 text-white">
-      <div className="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center gap-16">
+      <div className="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-between gap-16">
         {/* LEFT SIDE: TEXT */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
