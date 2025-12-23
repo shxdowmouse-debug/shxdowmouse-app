@@ -1,63 +1,42 @@
-import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import NotifyForm from "./NotifyForm";
 
-export function NotifyForm() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("loading");
-
-    try {
-      const response = await fetch("https://formspree.io/f/xdanpdwv", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      if (response.ok) {
-        setStatus("success");
-        setEmail("");
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
-  };
-
+export default function OrderModal({ isOpen, onClose }) {
   return (
-    <form 
-      onSubmit={handleSubmit}
-      className="flex flex-col sm:flex-row items-center gap-4 justify-center w-full sm:w-auto"
-    >
-      <input
-        type="email"
-        name="email"
-        required
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email Address"
-        className="w-full sm:w-64 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none"
-      />
-
-      <button
-        type="submit"
-        disabled={status === "loading"}
-        className="h-14 px-8 rounded-2xl text-lg font-semibold bg-white text-black hover:bg-white/90 transition-all shadow-md w-full sm:w-auto"
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent
+        className="
+          backdrop-blur-2xl
+          bg-white/10
+          border border-white/20
+          shadow-[0_8px_32px_rgba(0,0,0,0.4)]
+          rounded-3xl
+          p-8
+          max-w-md
+          mx-auto
+          text-white
+        "
       >
-        {status === "loading" ? "Sending..." : "Notify Me"}
-      </button>
+        <DialogHeader>
+          <DialogTitle className="text-3xl font-bold tracking-tight">
+            Get Notified
+          </DialogTitle>
 
-      {status === "success" && (
-        <p className="text-green-400 text-sm">Thanks! You’ll be notified.</p>
-      )}
-      {status === "error" && (
-        <p className="text-red-400 text-sm">Something went wrong.</p>
-      )}
-    </form>
+          <DialogDescription className="text-white/70 text-base">
+            Enter your email and we’ll let you know as soon as shxdowmouse releases.
+          </DialogDescription>
+        </DialogHeader>
+
+        <div className="mt-6">
+          <NotifyForm />
+        </div>
+      </DialogContent>
+    </Dialog>
   );
 }
