@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { Button } from "./ui/button";
-import NotifyForm from "./notifyform";
-
 import {
   Dialog,
   DialogTrigger,
@@ -12,7 +11,8 @@ import {
   DialogTitle,
   DialogDescription
 } from "./ui/dialog";
-
+import { Input } from "./ui/input";
+import { useToast } from "./ui/use-toast";
 import type { Product } from "../types";
 
 interface ProductHeroProps {
@@ -20,6 +20,40 @@ interface ProductHeroProps {
 }
 
 export function ProductHero({ product }: ProductHeroProps) {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
+
+  const handleNotify = async () => {
+    if (!email) {
+      toast({ title: "Email required", description: "Please enter your email address.", variant: "destructive" });
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/notify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        toast({ title: "Success", description: "You're on the list!" });
+        setEmail("");
+      } else {
+        toast({ title: "Error", description: data.message || "Failed to send confirmation email.", variant: "destructive" });
+      }
+    } catch (err) {
+      toast({ title: "Error", description: "Something went wrong.", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="relative w-full py-52 overflow-hidden bg-gradient-to-b from-black to-neutral-900 text-white">
       <div className="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-between gap-16">
@@ -53,11 +87,7 @@ export function ProductHero({ product }: ProductHeroProps) {
               </DialogTrigger>
 
               <DialogContent
-                className="
-                  max-w-lg mx-auto rounded-3xl p-8 text-white
-                  bg-white/10 backdrop-blur-2xl border border-white/20
-                  shadow-[0_8px_32px_rgba(0,0,0,0.4)]
-                "
+                className="max-w-lg mx-auto rounded-3xl p-8 text-white bg-white/10 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
               >
                 <DialogHeader>
                   <DialogTitle className="text-3xl font-bold tracking-tight">
@@ -68,8 +98,22 @@ export function ProductHero({ product }: ProductHeroProps) {
                   </DialogDescription>
                 </DialogHeader>
 
-                <div className="mt-6">
-                  <NotifyForm />
+                <div className="mt-6 space-y-4">
+                  <Input
+                    type="email"
+                    placeholder="you@example.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    disabled={loading}
+                    className="bg-white/5 border-white/20 text-white placeholder-white/40"
+                  />
+                  <Button
+                    onClick={handleNotify}
+                    disabled={loading}
+                    className="w-full h-12 text-lg font-semibold bg-white text-black hover:bg-white/90 transition-all"
+                  >
+                    {loading ? "Sending..." : "Notify Me"}
+                  </Button>
                 </div>
               </DialogContent>
             </Dialog>
